@@ -4,5 +4,8 @@ target = "mos-sim-none"
 [target.mos-sim-none]
 runner = ["mos-sim", "--cycles"]
 
+[target.mos-apple-iie-none]
+rustflags = ["-Clink-arg=-Tappleiielinker.ld"]
+
 [unstable]
 build-std = ["core", "alloc"]
