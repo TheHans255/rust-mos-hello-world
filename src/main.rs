@@ -13,6 +13,8 @@ fn panic(_info: &PanicInfo) -> ! {
     loop {}
 }
 
+// TODO: Write __putchar
+
 #[start]
 fn _main(_argc: isize, _argv: *const *const u8) -> isize {
     #[cfg(not(target_vendor = "nes-nrom-128"))]
