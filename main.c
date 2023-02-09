@@ -7,7 +7,9 @@ void __putchar(char c) {
   static char x = 0;
   static char y = 0;
   static char *textscreen = (char *)0x0400;
-  textscreen[y * 0x28 + x] = (c | 128);
+  if (c > 0x20) {
+    textscreen[((int)y / 3 * 128) + (y % 3 * 40) + x] = (c | 128);
+  }
   x++;
   if (x >= 40 || c == '\r') {
     x = 0;
@@ -20,6 +22,6 @@ void __putchar(char c) {
 
 int main(void) { 
     for (int x = 0; x < 100; x++) {
-        printf("%s", "Hello world!\r"); 
+        printf("Hello %d!\r", 6502); 
     }
 }
